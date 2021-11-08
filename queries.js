@@ -30,3 +30,32 @@ export const getPostsQuery = gql`
     }
   }
 `
+
+export const getRecentPostsQuery = gql`
+  query GetRecentPosts {
+    posts(orderBy: createdAt_ASC, last: 3) {
+      title
+      slug
+      createdAt
+      featuredImage {
+        url
+      }
+    }
+  }
+`
+
+export const getRelatedPostsQuery = gql`
+  query GetRelatedPost($slug: String!, $categories: [String!]) {
+    posts(
+      where: { slug_not: $slug, AND: { categories_some: { slug_in: $categories } } }
+      last: 3
+    ) {
+      title
+      featuredImage {
+        url
+      }
+      createdAt
+      slug
+    }
+  }
+`

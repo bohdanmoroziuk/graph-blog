@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import PostCard from 'components/post-card'
+import PostWidget from 'components/post-widget';
 
 import { getPosts } from 'services';
 
@@ -20,6 +21,7 @@ export default function Home({ posts = [] }) {
         </div>
         <div className="lg:col-span-4 col-span-1">
           <div className="lg:sticky relative top-8">
+            <PostWidget />
           </div>
         </div>
       </div>
