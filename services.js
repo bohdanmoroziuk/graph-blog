@@ -2,11 +2,12 @@ import { request } from 'graphql-request'
 
 import {
   getPostsQuery,
+  getCategoriesQuery,
   getRecentPostsQuery,
   getRelatedPostsQuery,
 } from 'queries'
 
-const url = process.env.NEXT_API_PUBLIC_ENDPOINT
+const url = process.env.NEXT_PUBLIC_API_ENDPOINT
 
 export const getPosts = async () => {
   const result = await request(url, getPostsQuery)
@@ -17,16 +18,19 @@ export const getPosts = async () => {
 export const getRecentPosts = async () => {
   try {
     const result = await request(url, getRecentPostsQuery)
-  
-    console.log({ result });
 
     return result.posts
   } catch (error) {
-    console.log('Error', error.message);
     return [];
   }
 }
 
 export const getRelatedPosts = async (slug, categories) => {
   const result = await request(url, getRelatedPostsQuery, { slug, categories })
+}
+
+export const getCategories = async () => {
+  const result = await request(url, getCategoriesQuery)
+
+  return result.categories
 }

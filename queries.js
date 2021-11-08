@@ -59,3 +59,12 @@ export const getRelatedPostsQuery = gql`
     }
   }
 `
+
+export const getCategoriesQuery = gql`
+  query GetCategories {
+    categories {
+      slug
+      name
+    }
+  }
+`
