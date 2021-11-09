@@ -1,6 +1,7 @@
 import { request } from 'graphql-request'
 
 import {
+  getPostQuery,
   getPostsQuery,
   getCategoriesQuery,
   getRecentPostsQuery,
@@ -33,4 +34,10 @@ export const getCategories = async () => {
   const result = await request(url, getCategoriesQuery)
 
   return result.categories
+}
+
+export const getPost = async (slug) => {
+  const result = await request(url, getPostQuery, { slug })
+
+  return result.post
 }
