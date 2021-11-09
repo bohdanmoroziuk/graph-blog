@@ -8,11 +8,11 @@ const PostWidget = ({ slug, categories }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    // if (slug) {
-    //   getRelatedPosts(slug, categories).then((posts) => setPosts(posts))
-    // } else {
-      getRecentPosts().then((posts) => setPosts(posts))
-    // }
+    if (slug) {
+      getRelatedPosts(slug, categories).then(setPosts)
+    } else {
+      getRecentPosts().then(setPosts)
+    }
   }, [slug]);
 
   return (

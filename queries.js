@@ -45,7 +45,7 @@ export const getRecentPostsQuery = gql`
 `
 
 export const getRelatedPostsQuery = gql`
-  query GetRelatedPost($slug: String!, $categories: [String!]) {
+  query GetRelatedPosts($slug: String!, $categories: [String!]) {
     posts(
       where: { slug_not: $slug, AND: { categories_some: { slug_in: $categories } } }
       last: 3

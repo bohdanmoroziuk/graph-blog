@@ -28,6 +28,8 @@ export const getRecentPosts = async () => {
 
 export const getRelatedPosts = async (slug, categories) => {
   const result = await request(url, getRelatedPostsQuery, { slug, categories })
+
+  return result.posts
 }
 
 export const getCategories = async () => {
