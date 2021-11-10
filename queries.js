@@ -96,3 +96,13 @@ export const getPostQuery = gql`
     }
   }
 `
+
+export const getPostCommentsQuery = gql`
+  query GetComments($slug: String!) {
+    comments(where: { post: { slug: $slug } }) {
+      name
+      createdAt
+      text
+    }
+  }
+`

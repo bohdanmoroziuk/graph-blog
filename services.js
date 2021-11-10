@@ -6,6 +6,7 @@ import {
   getCategoriesQuery,
   getRecentPostsQuery,
   getRelatedPostsQuery,
+  getPostCommentsQuery,
 } from 'queries'
 
 const url = process.env.NEXT_PUBLIC_API_ENDPOINT
@@ -56,4 +57,10 @@ export const submitComment = async (payload) => {
   const result = response.json()
 
   return result
+}
+
+export const getPostComments = async (slug) => {
+  const result = await request(url, getPostCommentsQuery, { slug })
+
+  return result.comments
 }
