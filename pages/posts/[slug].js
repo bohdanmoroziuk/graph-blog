@@ -4,6 +4,7 @@ import PostWidget from 'components/post-widget'
 import Categories from 'components/categories'
 import PostDetail from 'components/post-detail'
 import PostAuthor from 'components/post-author'
+import PostCommentForm from 'components/post-comment-form'
 
 import { getPost, getPosts } from 'services'
 
@@ -14,8 +15,8 @@ const Post = ({ post }) => {
         <div className="col-span-1 lg:col-span-8">
           <PostDetail post={post} />
           <PostAuthor author={post.author} />
-          {/* <PostCommentsForm slug={post.slug} />
-          <PostComments slug={post.slug} /> */}
+          <PostCommentForm slug={post.slug} />
+          {/* <PostComments slug={post.slug} /> */}
         </div>
         <div className="col-span-1 lg:col-span-4">
           <div className="relative lg:sticky top-8">
