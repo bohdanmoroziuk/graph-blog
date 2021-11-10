@@ -43,3 +43,17 @@ export const getPost = async (slug) => {
 
   return result.post
 }
+
+export const submitComment = async (payload) => {
+  const response = await fetch('/api/comments', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+
+  const result = response.json()
+
+  return result
+}
